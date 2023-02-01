@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 
 function Truncate({ text }) {
 	const sentences = text.split(".")
@@ -12,19 +12,19 @@ function Spotlight({ data }) {
 	return (
 		<>
 			{data ? (
-				<div className="flex flex-grow flex-col-reverse md:flex-row items-center my-20 mx-2 sm:mx-10 md:mx-16 border-2 h-auto">
-					<div className="border-2 md:w-1/2 w-full bg-red-400 flex flex-col justify-center">
+				<div className="flex flex-grow flex-col-reverse md:flex-row items-center my-20 mx-2 sm:mx-10 h-auto gap-6 lg:mx-40">
+					<div className="md:w-1/2 w-full flex flex-col justify-center">
 						<p className="block text-lg leading-tight font-medium text-black hover:underline">
 							{data.title}
 						</p>
 
-						<p className="mt-2 text-slate-500">
-							<Truncate text={data.explanation} />
+						<p className="mt-4 text-slate-700 w-auto md:w-11/12 text-start">
+							<Truncate text={data.explanation} />.
 						</p>
 
 						{data.copyright ? (
-							<p className="uppercase mt-2 tracking-wide text-sm text-indigo-500 font-semibold">
-								{data.copyright}
+							<p className="mt-4 tracking-wide text-sm text-indigo-500 font-semibold">
+								Copyrights: {data.copyright}
 							</p>
 						) : (
 							""
@@ -32,18 +32,18 @@ function Spotlight({ data }) {
 
 					</div>
 
-					<div className="border-2 sm:w-1/2 w-full h-auto bg-green-400 flex items-center justify-center">
+					<div className="sm:w-1/2 w-full max-w-xl h-auto bg-green flex items-center justify-center">
 						{data.media_type === "image" ? (
 							<img
 								src={data.url}
 								alt="Front of men&#039;s Basic Tee in black."
-								className="object-cover aspect-4/3 object-center rounded-md"
+								className="object-cover aspect-4/3 rounded-md w-72 md:w-auto"
 							/>
 						) : (
 							<iframe
 								title={data.title}
 								src={data.url}
-								className="aspect-4/3 rounded-md"
+								className="object-cover aspect-4/3 rounded-md w-72 md:w-auto"
 							/>
 						)}
 					</div>

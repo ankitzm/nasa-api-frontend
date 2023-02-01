@@ -6,7 +6,7 @@ function Preview({ mediaType, url, title, date, explanation, copyright }) {
 
 	return (
 		<div className="w-32 sm:w-56 md:w-72">
-			<div className="">
+			<div onClick={() => setShowModal(true)}>
 				{mediaType === "image" ? (
 					<img
 						src={url}
@@ -28,13 +28,13 @@ function Preview({ mediaType, url, title, date, explanation, copyright }) {
 					</h3>
 				</div>
 				<p className="text-sm font-medium text-gray-900">{date}</p>
-				<button
+				{/* <button
 					className="bg-pink-500 text-white active:bg-pink-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
 					type="button"
 					onClick={() => setShowModal(true)}
 				>
 					Open regular modal
-				</button>
+				</button> */}
 
 				{/* modal dialog */}
 
@@ -75,7 +75,6 @@ function Preview({ mediaType, url, title, date, explanation, copyright }) {
 						<div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
 					</>
 				) : null}
-				dnvk
 			</div>
 		</div>
 	)

@@ -24,8 +24,6 @@ function App() {
 		fetchData()
 	}, [week])
 
-	console.log(process.env)
-
 	function fetchData() {
 		fetch(
 			`https://api.nasa.gov/planetary/apod?api_key=${
@@ -67,15 +65,27 @@ function App() {
 		return acc
 	}, [])
 
-	console.log(weekDataList)
-
 	return (
-		<div className="min-h-screen w-full bg-zinc-500">
-			<h1 className="text-3xl font-bold underline">Hello world!</h1>
+		<div className="min-h-screen w-full">
+			<header className="sticky p-4 bg-slate-300">
+				<div className="font-bold leading-7 text-gray-900 sm:truncate sm:tracking-tight flex flex-col">
+					<p className="text-2xl sm:text-4xl">NASA</p>
+					<p className="text-xl sm:text-3xl">
+						(created by Ankit Singh)
+					</p>
+				</div>
+				<div></div>
+			</header>
+
 			<Spotlight data={data[0]} />
+
+			<h2 className="font-bold ml-6 leading-7 text-gray-900 sm:truncate sm:tracking-tight text-xl sm:text-2xl">
+				Past Week's ( scroll ➜ )
+			</h2>
 			<Weekly data={data.slice(1, 8)} />
 
 			{/* Show Weekly Data */}
+
 			{weekDataList.map(dataList => {
 				return (
 					<div key={dataList[0].date}>
