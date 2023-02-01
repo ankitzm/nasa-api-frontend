@@ -9,9 +9,12 @@ function Weekly({data}) {
 					return (
 						<div className="inline-block px-3" key={obj.date}>
 							<Preview
-								imgUrl={obj.url}
+								mediaType={obj.media_type}
+								url={obj.url}
 								title={obj.title}
 								date={obj.date}
+								explanation={obj.explanation}
+								copyright={obj.copyright}
 							/>
 						</div>
 					)
