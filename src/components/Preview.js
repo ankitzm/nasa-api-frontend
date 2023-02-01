@@ -1,7 +1,15 @@
 import React from "react"
 import Spotlight from "./Spotlight"
 
-function Preview({ mediaType, url, title, date, explanation, copyright }) {
+function Preview({
+	mediaType,
+	thumbNailUrl,
+	url,
+	title,
+	date,
+	explanation,
+	copyright,
+}) {
 	const [showModal, setShowModal] = React.useState(false)
 
 	return (
@@ -17,7 +25,7 @@ function Preview({ mediaType, url, title, date, explanation, copyright }) {
 				) : (
 					<iframe
 						title={title}
-						src="https://www.youtube.com/embed/0fKBhvDjuy0?rel=0"
+						src={thumbNailUrl}
 						className="aspect-4/3 w-32 sm:w-56 md:w-72 rounded-md"
 					/>
 				)}
@@ -28,7 +36,9 @@ function Preview({ mediaType, url, title, date, explanation, copyright }) {
 						<p>{title}</p>
 					</h3>
 				</div>
-				<p className="text-sm font-medium text-gray-900 inline-block bottom-0 py-4">{date}</p>
+				<p className="text-sm font-medium text-gray-900 inline-block bottom-0 py-4">
+					{date}
+				</p>
 
 				{showModal ? (
 					<>
@@ -36,7 +46,6 @@ function Preview({ mediaType, url, title, date, explanation, copyright }) {
 							<div className="relative my-6 mx-auto w-10/12">
 								{/*content*/}
 								<div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
-							
 									<div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
 										<h3 className="text-3xl font-semibold">
 											Modal Title

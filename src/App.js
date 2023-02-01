@@ -3,7 +3,8 @@ import "./App.css"
 import Spotlight from "./components/Spotlight"
 import Weekly from "./components/Weekly"
 import { Toaster, toast } from "react-hot-toast"
-import Loader from "./utils/loader.gif"
+import Loader from "./assets/loader.gif"
+import Nasa from "./assets/nasa.jpg"
 
 function formatDate(date) {
 	const formattedDate = date.toISOString().split("T")[0]
@@ -55,14 +56,6 @@ function App() {
 				setData(data.concat(res.reverse()))
 				setCurrent(new Date(prevDate - dayInMs))
 				setPrevDate(new Date(prevDate - weekInMs))
-
-				setTimeout(() => {
-					// scroll a little low when new data is fetched
-					window.scrollTo({
-						top: document.documentElement.scrollTop + 150,
-						behavior: "smooth",
-					})
-				}, 1000);
 			})
 	}
 
@@ -94,21 +87,19 @@ function App() {
 
 	return (
 		<div className="min-h-screen w-full flex flex-col">
-			<header className="sticky p-4 bg-slate-300 w-screen">
-				<div className="font-bold leading-7 text-gray-900 sm:truncate sm:tracking-tight flex flex-col">
-					<p className="text-2xl sm:text-4xl">NASA</p>
-					<p className="text-xl sm:text-3xl">
-						(created by Ankit Singh)
-					</p>
+			<header className="sticky p-auto font-bold leading-7 text-gray-900 sm:truncate sm:tracking-tight flex justify-between my-4 mx-10">
+				<div className="flex flex-col">
+				<p className="text-2xl sm:text-4xl">NASA</p>
+				<p className="text-xl sm:text-3xl">(created by Ankit Singh)</p>
 				</div>
-				<div></div>
+				<img src={Nasa} alt="nasa_logo" className="h-20 w-20"/>
 			</header>
 
 			{!loader ? (
 				<>
 					<Spotlight data={data[0]} />
 
-					<h2 className="font-bold ml-6 leading-7 text-gray-900 sm:truncate sm:tracking-tight text-xl sm:text-2xl">
+					<h2 className="font-bold ml-6 my-10 leading-7 text-gray-900 sm:truncate sm:tracking-tight text-2xl sm:text-3xl">
 						Past Week's ( scroll ➜ )
 					</h2>
 					<Weekly data={data.slice(1, 8)} />
@@ -119,6 +110,14 @@ function App() {
 						return (
 							<div key={dataList[0].date}>
 								<Weekly data={dataList} />
+								{
+									window.scrollTo({
+										top:
+											document.documentElement.scrollTop +
+											100,
+										behavior: "smooth",
+									})
+								}
 							</div>
 						)
 					})}
