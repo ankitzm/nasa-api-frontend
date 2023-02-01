@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react"
 import "./App.css"
 import Spotlight from "./components/Spotlight"
 import Weekly from "./components/Weekly"
-require('dotenv').config()
 
 function formatDate(date) {
 	const formattedDate = date.toISOString().split("T")[0]
@@ -30,7 +29,7 @@ function App() {
 	function fetchData() {
 		fetch(
 			`https://api.nasa.gov/planetary/apod?api_key=${
-				process.env.REACT_PUBLIC_NASA_API
+				process.env.REACT_APP_NASA_API
 			}&start_date=${formatDate(prevDate)}&end_date=${formatDate(
 				current,
 			)}`,
