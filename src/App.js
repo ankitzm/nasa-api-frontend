@@ -57,7 +57,7 @@ function App() {
 				setPrevDate(new Date(prevDate - weekInMs))
 
 				setTimeout(() => {
-					// move a little low when new data is fetched
+					// scroll a little low when new data is fetched
 					window.scrollTo({
 						top: document.documentElement.scrollTop + 150,
 						behavior: "smooth",

@@ -28,7 +28,7 @@ function Preview({ mediaType, url, title, date, explanation, copyright }) {
 						<p>{title}</p>
 					</h3>
 				</div>
-				<p className="text-sm font-medium text-gray-900">{date}</p>
+				<p className="text-sm font-medium text-gray-900 inline-block bottom-0 py-4">{date}</p>
 
 				{showModal ? (
 					<>

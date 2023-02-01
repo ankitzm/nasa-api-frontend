@@ -4,7 +4,7 @@ import Preview from "./Preview"
 function Weekly({data}) {
 	return (
 		<div className="flex overflow-x-scroll my-8">
-			<div className="flex flex-nowrap lg:ml-40 md:ml-20 my-10 ">
+			<div className="flex flex-nowrap lg:ml-20 md:ml-10">
 				{data.map(obj => {
 					return (
 						<div className="inline-block px-3" key={obj.date}>
