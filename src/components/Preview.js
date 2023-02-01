@@ -12,12 +12,13 @@ function Preview({ mediaType, url, title, date, explanation, copyright }) {
 						src={url}
 						alt="Front of men&#039;s Basic Tee in black."
 						className="object-cover aspect-4/3 object-center rounded-md"
+						loading="lazy"
 					/>
 				) : (
 					<iframe
 						title={title}
 						src="https://www.youtube.com/embed/0fKBhvDjuy0?rel=0"
-						className="aspect-4/3 rounded-md"
+						className="aspect-4/3 w-32 sm:w-56 md:w-72 rounded-md"
 					/>
 				)}
 			</div>
@@ -28,15 +29,6 @@ function Preview({ mediaType, url, title, date, explanation, copyright }) {
 					</h3>
 				</div>
 				<p className="text-sm font-medium text-gray-900">{date}</p>
-				{/* <button
-					className="bg-pink-500 text-white active:bg-pink-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-					type="button"
-					onClick={() => setShowModal(true)}
-				>
-					Open regular modal
-				</button> */}
-
-				{/* modal dialog */}
 
 				{showModal ? (
 					<>
