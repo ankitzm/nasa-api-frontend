@@ -114,11 +114,6 @@ function App() {
 						return (
 							<div key={dataList[0].date}>
 								<Weekly data={dataList} />
-								{window.scrollTo({
-									top:
-										document.documentElement.scrollTop + 80,
-									behavior: "smooth",
-								})}
 							</div>
 						)
 					})}
