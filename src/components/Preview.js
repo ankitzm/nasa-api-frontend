@@ -23,7 +23,7 @@ function Preview({
 					<img
 						src={url}
 						alt={title}
-						className="object-cover aspect-4/3 w-32 sm:w-56 md:w-72 object-center rounded-md transition-all"
+						className="object-cover aspect-4/3 w-32 sm:w-56 md:w-72 object-center rounded-md shadow-lg shadow-gray-600"
 						loading="lazy"
 					/>
 				) : (

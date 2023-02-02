@@ -40,13 +40,13 @@ function Spotlight({ data }) {
 							<img
 								src={data.url}
 								alt="Front of men&#039;s Basic Tee in black."
-								className="shimmer aspect-4/3 rounded-md w-72 md:w-auto shadow-2xl shadow-slate-700"
+								className="shimmer aspect-4/3 rounded-md w-72 md:w-auto shadow-xl shadow-slate-400"
 							/>
 						) : (
 							<iframe
 								title={data.title}
 								src={data.url}
-								className="shimmer aspect-4/3 rounded-md w-72 md:w-auto shadow-2xl shadow-slate-700"
+								className="shimmer aspect-4/3 rounded-md w-72 md:w-auto shadow-xl shadow-slate-400"
 							/>
 						)}
 					</div>
