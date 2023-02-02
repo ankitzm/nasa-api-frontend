@@ -3,7 +3,7 @@ import Preview from "./Preview"
 
 function Weekly({ data }) {
 	return (
-		<div className="flex overflow-x-scroll my-8">
+		<div className="flex overflow-x-scroll mt-8">
 			<div className="flex flex-nowrap lg:ml-20 md:ml-10">
 				{data.map(obj => {
 					return (

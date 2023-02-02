@@ -1,4 +1,5 @@
 import React from "react"
+import "./../Shimmer.css"
 
 function Truncate({ text }) {
 	const sentences = text.split(".")
@@ -12,7 +13,7 @@ function Spotlight({ data }) {
 	return (
 		<>
 			{data ? (
-				<div className="flex flex-grow flex-col-reverse md:flex-row items-center my-10 mx-2 sm:mx-10 h-auto gap-6 lg:mx-40">
+				<div className="flex flex-grow flex-col-reverse justify-between items-center md:flex-row my-10 mx-2 sm:mx-10 h-auto gap-6 lg:mx-40 min-h-70 max-w-7xl">
 					<div className="md:w-1/2 w-full flex flex-col justify-center text-lg lg:text-xl">
 						<p className="font-bold text-lg py-4 text-red-700">
 							{data.date}
@@ -34,18 +35,18 @@ function Spotlight({ data }) {
 						)}
 					</div>
 
-					<div className="sm:w-1/2 w-full max-w-xl h-auto bg-green flex items-center justify-center">
+					<div className="sm:w-1/2 w-full h-auto flex items-center justify-center">
 						{data.media_type === "image" ? (
 							<img
 								src={data.url}
 								alt="Front of men&#039;s Basic Tee in black."
-								className="object-cover aspect-4/3 rounded-md w-72 md:w-auto shadow-2xl shadow-slate-700"
+								className="shimmer aspect-4/3 rounded-md w-72 md:w-auto shadow-2xl shadow-slate-700"
 							/>
 						) : (
 							<iframe
 								title={data.title}
 								src={data.url}
-								className="object-cover aspect-4/3 rounded-md w-72 md:w-auto shadow-2xl shadow-slate-700"
+								className="shimmer aspect-4/3 rounded-md w-72 md:w-auto shadow-2xl shadow-slate-700"
 							/>
 						)}
 					</div>

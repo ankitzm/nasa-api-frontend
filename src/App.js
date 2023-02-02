@@ -87,17 +87,21 @@ function App() {
 
 	return (
 		<div className="min-h-screen w-full flex flex-col">
-			<header className="sticky p-auto font-bold leading-7 text-gray-900 sm:truncate sm:tracking-tight flex justify-between my-4 mx-10">
+			<header className="sticky p-auto font-bold leading-7 text-gray-900 sm:truncate sm:tracking-tight flex justify-between w-full py-4 px-10 md:px-16 lg:px-32">
 				<div className="flex flex-col">
-				<p className="text-2xl sm:text-4xl">NASA</p>
-				<p className="text-xl sm:text-3xl">(created by Ankit Singh)</p>
+					<p className="text-2xl sm:text-4xl">NASA</p>
+					<p className="text-xl sm:text-3xl">
+						(created by Ankit Singh)
+					</p>
 				</div>
-				<img src={Nasa} alt="nasa_logo" className="h-20 w-20"/>
+				<img src={Nasa} alt="nasa_logo" className="h-20 w-20" />
 			</header>
 
 			{!loader ? (
 				<>
-					<Spotlight data={data[0]} />
+					<div className="flex justify-center">
+						<Spotlight data={data[0]} />
+					</div>
 
 					<h2 className="font-bold ml-6 my-10 leading-7 text-gray-900 sm:truncate sm:tracking-tight text-2xl sm:text-3xl">
 						Past Week's ( scroll ➜ )
@@ -110,14 +114,11 @@ function App() {
 						return (
 							<div key={dataList[0].date}>
 								<Weekly data={dataList} />
-								{
-									window.scrollTo({
-										top:
-											document.documentElement.scrollTop +
-											100,
-										behavior: "smooth",
-									})
-								}
+								{window.scrollTo({
+									top:
+										document.documentElement.scrollTop + 80,
+									behavior: "smooth",
+								})}
 							</div>
 						)
 					})}

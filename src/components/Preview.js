@@ -1,5 +1,6 @@
 import React from "react"
 import Spotlight from "./Spotlight"
+import "./../Shimmer.css"
 
 function Preview({
 	mediaType,
@@ -14,19 +15,22 @@ function Preview({
 
 	return (
 		<div className="w-32 sm:w-56 md:w-72">
-			<div onClick={() => setShowModal(true)}>
+			<div
+				onClick={() => setShowModal(true)}
+				className="aspect-4/3 h-auto w-32 sm:w-56 md:w-72 bg-slate-300 shimmer cursor-pointer"
+			>
 				{mediaType === "image" ? (
 					<img
 						src={url}
-						alt="Front of men&#039;s Basic Tee in black."
-						className="object-cover aspect-4/3 object-center rounded-md"
+						alt={title}
+						className="object-cover aspect-4/3 w-32 sm:w-56 md:w-72 object-center rounded-md transition-all"
 						loading="lazy"
 					/>
 				) : (
 					<iframe
 						title={title}
 						src={thumbNailUrl}
-						className="aspect-4/3 w-32 sm:w-56 md:w-72 rounded-md"
+						className="object-cover aspect-4/3 w-32 sm:w-56 md:w-72 rounded-md"
 					/>
 				)}
 			</div>
@@ -42,27 +46,24 @@ function Preview({
 
 				{showModal ? (
 					<>
-						<div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none ">
-							<div className="relative my-6 mx-auto w-10/12">
+						<div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50">
+							<div className="relative my-6 mx-auto w-10/12 shadow-2xl shadow-slate-900">
 								{/*content*/}
 								<div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
-									<div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
-										<h3 className="text-3xl font-semibold">
-											Modal Title
-										</h3>
-										<button
-											className="background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-											type="button"
-											onClick={() => setShowModal(false)}
-										>
-											❌
-										</button>
-									</div>
+									<button
+										className="background-transparent font-bold flex justify-end mt-6 mr-10 text-sm ease-linear transition-all duration-150"
+										type="button"
+										onClick={() => setShowModal(false)}
+									>
+										❌
+									</button>
+
 									{/*body*/}
-									<div className="relative p-6 flex-auto">
+									<div className="relative px-2 flex justify-center">
 										<Spotlight
 											data={{
 												title: title,
+												date,
 												explanation: explanation,
 												copyright: copyright,
 												media_type: mediaType,
@@ -73,7 +74,6 @@ function Preview({
 								</div>
 							</div>
 						</div>
-						<div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
 					</>
 				) : null}
 			</div>
